@@ -10,7 +10,7 @@ char_limit = 4500                                                               
 
 def convert(s):                                                                                         # Function to concatinate a list of characters
  
-    # initialization of string to ""
+    # initialization of empty string 
     new = ""
  
     # traverse in the string
@@ -52,11 +52,9 @@ for i in range(int(len(characters)/char_limit)+2):                              
         with open('text_to_speech_audio%.i.wav'%i,'wb',) as output:                                     # Write the audio files in order as the loop goes round and round
                 output.write(response.audio_content)
 
-for i in range(int(len(characters)/char_limit)+2):                                                      # Concatinate the audio files
+        sound = (AudioSegment.from_wav('text_to_speech_audio%.i.wav'%i))                                # Concatinate the audio files
 
-        sound = (AudioSegment.from_wav('text_to_speech_audio%.i.wav'%i))
-
-        combined_sounds = combined_sounds+sound
+        combined_sounds = combined_sounds+sound                                              
 
 print('Name output file:')                                                                              # Input the desired output file name
 x = input()
