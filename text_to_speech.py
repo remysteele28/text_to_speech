@@ -20,12 +20,16 @@ def convert(s):                                                                 
     # return string
     return new
 
-tospeech = \
-''' 
+if os.path.isfile(./tospeech.txt):
+    with open("./tospeech.txt","r") as f:
+        tospeech = f.read()
+else:
+    tospeech = \
+    ''' 
 
-ENTER TEXT HERE
+    ENTER TEXT HERE
 
-'''
+    '''
 characters = list(tospeech)                                                                             # Split text into a list characters
 
 for i in range(int(len(characters)/char_limit)+2):                                                      # Loop through the first 4500 characters, then the next 4500...
